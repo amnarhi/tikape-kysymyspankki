@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+        <title>Kysymys</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1> <span th:text="${kysymys.kysymysteksti}">kysymys</span></h1>
+        <p>Kurssi: <span th:text="${kysymys.kurssi}">kysymys.kurssi</span> </p>
+        <p>Aihepiiri: <span th:text="${kysymys.aihe}">kysymys.aihe</span></p>
+
+        <li th:each="vastaus: ${vastaukset}">
+           <span th:text="${vastaus.vastausteksti}">vastausteksti</span>
+          <b> <span th:text="${vastaus.oikeinSuomeksi}">oikein</span></b>
+            <form method="POST" action="/kysymys/poista"> 
+            <input type="hidden" name="kysymys.id"
+                 th:value= "${kysymys.id}"  />            
+            <input type="hidden" name="vastaus.id"
+                 th:value= "${vastaus.id}"  />
+            <input type="submit"  value="Poista"/> </form>
+        </li> 
+
+        <h2>Luo uusi vastausvaihtoehto</h2>
+          <form method="POST" action ="/kysymys">
+          Vastausteksti: <br/>
+          <input type="hidden" name ="kysymys.id" th:value="${kysymys.id}"/>
+          <input type="text" name="vastausteksti"/><br/>
+          Oikein:<br/>
+          <input type="checkbox" name="oikein"/><br/>
+          <input type="submit" value="Luo"/>
+  </form>
+
+    <a th:href="${'/'}">Takaisin kysymysten listaukseen</a> 
+
+    </body>
+</html>
