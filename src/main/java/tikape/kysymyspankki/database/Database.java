@@ -49,8 +49,8 @@ public class Database {
     private List<String> sqliteLauseet() {
         ArrayList<String> lista = new ArrayList<>();
         // tietokantataulujen luomiseen tarvittavat komennot suoritusjärjestyksessä
-        lista.add("CREATE TABLE Kysymys (id SERIAL PRIMARY KEY, kurssi varchar(200, aihe varchar(200), kysymysteksti varchar(500));");
-        lista.add("CEATE TABLE Vastaus (id SERIAL PRIMARY KEY, kysymys_id integer, vastausteksti varchar(500), oikein boolean, FOREIGN KEY (kysymys_id) REFERENCES Kysymys(id));");
+//        lista.add("CREATE TABLE Kysymys (id SERIAL PRIMARY KEY, kurssi varchar(200), aihe varchar(200), kysymysteksti varchar(500));");
+//        lista.add("CEATE TABLE Vastaus (id SERIAL PRIMARY KEY, kysymys_id integer, vastausteksti varchar(500), oikein boolean, FOREIGN KEY (kysymys_id) REFERENCES Kysymys(id));");
         
         return lista;
     }
