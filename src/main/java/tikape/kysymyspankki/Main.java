@@ -78,6 +78,10 @@ public class Main {
         post("/kysymys", (req, res) -> { // lisää uuden vastausvaihtoehdon
 
             Integer kysymys_id = Integer.parseInt(req.queryParams("kysymys.id"));
+            if (req.queryParams("vastausteksti") == null || req.queryParams("vastausteksti").isEmpty()) {
+                res.redirect("/kysymys/" + kysymys_id);
+                return "";
+            }            
             String vastausteksti = req.queryParams("vastausteksti");
             Boolean oikein;
             if (req.queryParams("oikein") == null || req.queryParams("oikein").isEmpty()) {
