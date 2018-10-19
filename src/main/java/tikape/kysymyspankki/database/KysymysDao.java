@@ -84,10 +84,10 @@ public class KysymysDao implements Dao<Kysymys, Integer> {
     public void delete(Integer key) throws SQLException { try {
         // poistaa kysymyksen ja kaikki siihen liittyvät vastaukset
         Connection connection = database.getConnection();
-        stmt = connection.prepareStatement("DELETE FROM Vastaus WHERE kysymys_id = ?");
+        PreparedStatement stmt = connection.prepareStatement("DELETE FROM Vastaus WHERE id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();
-        PreparedStatement stmt = connection.prepareStatement("DELETE FROM Kysymys WHERE id = ?");
+        stmt = connection.prepareStatement("DELETE FROM Kysymys WHERE kysymys_id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();
         } catch (Exception ex) {
