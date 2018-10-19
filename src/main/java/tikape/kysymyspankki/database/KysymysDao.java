@@ -81,7 +81,8 @@ public class KysymysDao implements Dao<Kysymys, Integer> {
     }
 
     @Override
-    public void delete(Integer key) throws SQLException { try {
+    public void delete(Integer key) throws SQLException { 
+        try {
         // poistaa kysymyksen ja kaikki siihen liittyvät vastaukset
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM Vastaus WHERE kysymys_id = ?");
