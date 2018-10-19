@@ -1,4 +1,4 @@
-package tikape.kysymyspankki.database;
+Kysymyspackage tikape.kysymyspankki.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -87,7 +87,7 @@ public class KysymysDao implements Dao<Kysymys, Integer> {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM Vastaus WHERE id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();
-        stmt = connection.prepareStatement("DELETE FROM Kysymys WHERE kysymys_id = ?");
+        stmt = connection.prepareStatement("DELETE FROM Kysymys WHERE id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();
         } catch (Exception ex) {
