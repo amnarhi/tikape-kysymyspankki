@@ -46,7 +46,7 @@ public class Main {
         }, new ThymeleafTemplateEngine());
 
         post("/poista", (req, res) -> { // poistaa kysymyksen 
-            Integer id = Integer.parseInt(req.queryParams("kysymys.id"));
+            Integer id = Integer.parseInt(req.queryParams("kysymys"));
             kysymysDao.delete(id);
             res.redirect("/");
             return "";
