@@ -1,4 +1,4 @@
-Kysymyspackage tikape.kysymyspankki.database;
+package tikape.kysymyspankki.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
